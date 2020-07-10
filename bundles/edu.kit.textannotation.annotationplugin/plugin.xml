@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            id="edu.kit.textannotation.annotationplugin.annotatabletextfile"
+            name="Annotatable Text File"
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="taf">
+      </content-type>
+      <content-type
+              id="edu.kit.textannotation.annotationplugin.annotationprofile"
+              name="Text Annotation Profile"
+              base-type="org.eclipse.core.runtime.text"
+              file-extensions="tap">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Text Annotation"
+            id="edu.kit.textannotation.annotationplugin">
+      </category>
+      <wizard
+            id="edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard"
+            name="Annotatable Text File"
+            icon="platform:/plugin/edu.kit.textannotation.annotationplugin/icons/icon.png"
+            class="edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard"
+            category="edu.kit.textannotation.annotationplugin">
+      </wizard>
+      <wizard
+              id="edu.kit.textannotation.annotationplugin.wizards.ProfileWizard"
+              name="Text Annotation Profile"
+              icon="platform:/plugin/edu.kit.textannotation.annotationplugin/icons/icon.png"
+              class="edu.kit.textannotation.annotationplugin.wizards.ProfileWizard"
+              category="edu.kit.textannotation.annotationplugin">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="edu.kit.textannotation.annotationplugin"
+            name="Text Annotation">
+      </category>
+      <view
+            category="edu.kit.textannotation.annotationplugin"
+            class="edu.kit.textannotation.annotationplugin.views.AnnotationControlsView"
+            icon="platform:/plugin/edu.kit.textannotation.annotationplugin/icons/icon.png"
+            id="edu.kit.textannotation.annotationplugin.views.AnnotationControlsView"
+            inject="true"
+            name="Text Annotation Controls">
+      </view>
+      <view
+              category="edu.kit.textannotation.annotationplugin"
+              class="edu.kit.textannotation.annotationplugin.views.AnnotationInfoView"
+              icon="platform:/plugin/edu.kit.textannotation.annotationplugin/icons/icon.png"
+              id="edu.kit.textannotation.annotationplugin.views.AnnotationInfoView"
+              inject="true"
+              name="Text Annotation Details">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="edu.kit.textannotation.annotationplugin.editor.AnnotationTextEditor"
+            id="edu.kit.textannotation.annotationplugin.editor"
+            name="textannotationeditor">
+      </editor>
+      <editorContentTypeBinding
+            contentTypeId="edu.kit.textannotation.annotationplugin.annotatabletextfile"
+            editorId="edu.kit.textannotation.annotationplugin.editor">
+      </editorContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.genericeditor.hoverProviders">
+      <hoverProvider
+            class="edu.kit.textannotation.annotationplugin.editor.HoverProvider"
+            contentType="edu.kit.textannotation.annotationplugin.project">
+      </hoverProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+	   <perspective
+	         name="Text Annotation Perspective"
+	         class="edu.kit.textannotation.annotationplugin.views.AnnotationPerspective"
+	         id="edu.kit.textannotation.annotationplugin.views.AnnotationPerspective" />
+   </extension>
+
+</plugin>

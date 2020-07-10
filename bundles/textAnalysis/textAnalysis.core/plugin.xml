@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+   		<launchConfigurationType
+	   		 id="textAnalysis.core.LaunchConfigurationType"
+	   		 delegate="textAnalysis.core.Delegate"
+	   		 modes="run, debug"
+	         name="TextAnalyzer">
+  		</launchConfigurationType>
+   </extension>
+  
+   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+        <launchConfigurationTabGroup
+            type="textAnalysis.core.LaunchConfigurationType"
+            class="textAnalysis.core.TabGroup" 
+            id="textAnalysis.core.AnalyzerTabGroup">
+            <launchMode 
+                  mode="debug"
+                  perspective="org.eclipse.debug.ui.DebugPerspective"
+                  description="">
+            </launchMode>
+            <launchMode
+                  mode="run"
+                  description="">
+            </launchMode>
+        </launchConfigurationTabGroup>
+	</extension>
+	
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage
+            id="launchconfigurationtypeimage"
+            configTypeID="textAnalysis.core.LaunchConfigurationType"
+            icon="icons/analysis.png">
+    </launchConfigurationTypeImage>
+	</extension>
+
+
+</plugin>

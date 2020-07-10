@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<annotated>
+  <annotationprofile id="reqdoc"/>
+  <annotation annotation="Goal" id="67955f0d-4458-4174-b1c0-674a10e2bccb" length="23" offset="111"/>
+  <annotation annotation="Stakeholder" id="0138d380-6c58-4cac-8418-36af1d49f5c0" length="24" offset="334"/>
+  <annotation annotation="Functional Requirement" id="3d6613fe-d78a-4a69-bb55-c453aa4bf7f6" length="102" offset="432"/>
+  <annotation annotation="Goal" id="ec43428f-2823-491b-9ee5-c53343444c2c" length="34" offset="747"/>
+  <annotation annotation="Stakeholder" id="c49a5997-4faa-4364-bf59-0c98f8cc9483" length="18" offset="791"/>
+  <annotation annotation="Stakeholder" id="1cc6396f-e76d-4908-b152-30a5e1055786" length="23" offset="923"/>
+  <annotation annotation="Goal" id="537ec435-492d-4d3b-b653-b3287c2db911" length="38" offset="1176"/>
+  <annotation annotation="Stakeholder" id="e9843084-b4b2-49c9-b3fb-989b2225a2b4" length="12" offset="1249"/>
+  <annotation annotation="Stakeholder" id="24a29fbb-1aed-4899-9d8a-282c1ac90bfb" length="33" offset="1362"/>
+  <annotation annotation="Goal" id="d9e42e51-9cd6-4c4f-b429-086113ae0525" length="21" offset="1440"/>
+  <annotation annotation="Goal" id="c58a76d1-0dff-4592-b2c3-74ed7e907601" length="21" offset="1622"/>
+  <annotation annotation="Goal" id="0e4a6649-c96d-40c6-b947-975e5f0e164f" length="14" offset="1817"/>
+  <annotation annotation="Goal" id="7884f8ab-576f-43ef-9db8-0ff675bff1cb" length="35" offset="1835"/>
+  <annotation annotation="Goal" id="5c46f0a2-8308-4fcb-8c42-089032025c5d" length="17" offset="1880"/>
+  <annotation annotation="Goal" id="e54d2510-c195-43a5-99e7-ef66c30bcdf9" length="10" offset="1962"/>
+  <annotation annotation="Stakeholder" id="9a3fda66-4adf-4377-a1a5-9f12166a9b92" length="22" offset="2087"/>
+  <annotation annotation="Stakeholder" id="e97f35d5-91d2-4c34-9022-5d0e016ee16b" length="34" offset="2223"/>
+  <annotation annotation="Stakeholder" id="a1fed711-0850-4429-95e0-04229276a25c" length="11" offset="2275"/>
+  <annotation annotation="Stakeholder" id="6c55796a-efdb-4a3c-81cd-c11764fc6f7d" length="11" offset="2476"/>
+  <annotation annotation="Goal" id="ab6856bb-c71e-4e09-99af-36a0a2f86d91" length="89" offset="0"/>
+  <annotation annotation="Goal" id="1204761e-81ea-4b29-84f4-c025b0841a40" length="34" offset="2787"/>
+  <annotation annotation="Functional Requirement" id="c0d607b3-5455-4ac6-b22d-b639615ec55b" length="163" offset="2554"/>
+  <annotation annotation="Stakeholder" id="58385b30-2665-4a33-9ef7-8c6445161210" length="34" offset="2718"/>
+  <annotation annotation="Goal" id="54b87bdb-7e4b-4bdb-bcfd-222f214066e6" length="33" offset="2753"/>
+  <content>So far, our travel management is still characterized by many forms and manual transfers. We want to
+completely replace this old system with a new, paperless system that will reduce the costs of processing
+travel requests and travel reimbursements and that will simplify the booking and documentation for the
+travelling employee.
+
+The travel management system should support all employees in planning their business trips. Up to 100
+employees should be able to work with it at the same time with response times of less than 5 seconds.
+If an employee wants to travel, he or she uses the system to plan the travel. The system shall request the
+required travel data from the employee and then automatically plan a travel itinerary. To do so, it shall
+request options for transportation from our registered vendors, i.e. airlines, rail companies and car rental
+companies. For hotel booking, the system shall be connected to our partner travel agencies to automatically
+make inquiries. With this information on available transportation options and hotels, the system shall
+suggest an itinerary to the travelling employee.
+
+If the employee is satisfied with the itinerary, he or she sends the itinerary through the system. It will then
+be presented to the line manager unless the employee has the right to self-authorize travel. Finally, the
+itinerary is checked by an employee of the travel department. The employee of the travel department will
+clarify any inquiries concerning cheaper or better options directly with the traveling employee. Once all the
+queries have been clarified, the employee of the travel department will confirm the itinerary and the system
+will book the corresponding others through the systems of the vendors and of the travelling agency.
+
+After the trip, the employee can also use the system for reimbursements by scanning and uploading the
+receipts. After a final examination by the travel department, the expenses of the employee are then
+reimbursed. In order to increase the company-wide benefits, the system should also be able to generate
+reports that help the controlling department to reduce the travel costs at Sigurado.
+
+For authorization of employees, the new system must be connected to our central Identity Management
+System, operated by the IT Services, because we do not want to manage the rights more than once. Any
+unauthorized access to the system should be prevented. I think the system should also be operated in the
+data center of our IT services so that the existing infrastructure can be used cost-efficiently.
+
+Sentence tests:
+I think the system should also be operated in the data center of our IT services so that the existing infrastructure can be used cost-efficiently.
+Today, Mr. Doe visited his aunt...
+Today, Mrs. Doe visited her aunt.
+Today, Prof. Doe visited his aunt.</content>
+</annotated>

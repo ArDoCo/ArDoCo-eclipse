@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: textAnalysis.provider
+Bundle-SymbolicName: textAnalysis.provider;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: javax.xml,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: textAnalysis.provider
+Export-Package: textAnalysis.provider
