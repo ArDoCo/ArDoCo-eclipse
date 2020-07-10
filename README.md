@@ -1,1 +1,1 @@
-"# ArDoCo-eclipse" 
+# ArDoCo-eclipse
