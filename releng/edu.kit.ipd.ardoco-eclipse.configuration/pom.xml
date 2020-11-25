@@ -12,8 +12,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.optimize>true</project.build.optimize>
 
-        <eclipse-repo.url>http://download.eclipse.org/releases/2020-03</eclipse-repo.url> <!-- 2019-09, 2020-03 -->
+        <eclipse-repo.url>http://download.eclipse.org/releases/2020-03</eclipse-repo.url>
         <jacoco.data.file>${project.build.directory}/coverage-reports/jacoco.exec</jacoco.data.file>
+
+        <sonar.projectKey>ArDoCo_ArDoCo-eclipse</sonar.projectKey>
+        <sonar.organization>ardoco</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <repositories>
