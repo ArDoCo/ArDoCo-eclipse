@@ -14,10 +14,6 @@
 
         <eclipse-repo.url>http://download.eclipse.org/releases/2020-03</eclipse-repo.url>
         <jacoco.data.file>${project.build.directory}/coverage-reports/jacoco.exec</jacoco.data.file>
-
-        <sonar.projectKey>ArDoCo_ArDoCo-eclipse</sonar.projectKey>
-        <sonar.organization>ardoco</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <repositories>
