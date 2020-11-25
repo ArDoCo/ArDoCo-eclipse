@@ -18,6 +18,10 @@
         <module>tests</module>
     </modules>
 
+    <properties>
+        <sonar.version>3.7.0.1746</sonar.version>
+    </properties>
+
 <profiles>
  <profile>
     <id>sonar</id>
