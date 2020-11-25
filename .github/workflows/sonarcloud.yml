@@ -11,8 +11,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  sonar:
+    name: Test - SonarCloud Scan
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -40,6 +40,7 @@ jobs:
           repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/${GITHUB_REPOSITORY}"}]'
           servers: '[{ "id": "github", "username": "x-access-token", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
       - name: Build and analyze
-        run: mvn -B clean verify -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
