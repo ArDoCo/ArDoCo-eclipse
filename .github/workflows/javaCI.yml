@@ -15,9 +15,8 @@ jobs:
         with:
           java-version: 11
       - name: Install headless testing on MacOS
-        run: if [ "$RUNNER_OS" == "macOS" ]; then
-               sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok
-             fi
+        run: sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok
+        if: matrix.os == 'macos-latest'
       - name: Build with Maven and headless test (only linux)
         uses: GabrielBB/xvfb-action@v1
         with:
