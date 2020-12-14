@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Run headless test
+      - name: Build with Maven and headless test (xvfb)
         uses: GabrielBB/xvfb-action@v1
         with:
           run: mvn -B verify --file pom.xml
