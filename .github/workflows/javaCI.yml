@@ -6,7 +6,7 @@ jobs:
   build-on-plattforms:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -14,6 +14,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: Install headless testing on MacOS
+        run: if [ "$RUNNER_OS" == "macOS" ]; then
+               sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok
+             fi
       - name: Build with Maven and headless test (only linux)
         uses: GabrielBB/xvfb-action@v1
         with:
