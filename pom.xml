@@ -23,7 +23,6 @@
         <sonar.organization>ardoco</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
-        <sonar.java.version>11</sonar.java.version>
     </properties>
 
 </project>
