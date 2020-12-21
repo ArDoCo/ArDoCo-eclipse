@@ -1,10 +1,10 @@
 name: SonarCloud Scan
-
+ 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
 
   # Allows you to run this workflow manually from the Actions tab
