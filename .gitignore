@@ -117,3 +117,4 @@ $RECYCLE.BIN/
 
 # Eclipse Core      
 .project
+.classpath
