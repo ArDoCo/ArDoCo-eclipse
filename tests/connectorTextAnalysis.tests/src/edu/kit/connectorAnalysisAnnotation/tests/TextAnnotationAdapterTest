@@ -1,0 +1,9 @@
+import static org.junit.Assert.assertEquals;
+
+public class TextAnnotationAdapterTest {
+	
+	@Test
+	public void testAdapter() {
+		TextAnnotationAdapter adapter = new TextAnnotationAdapter();
+	}
+}
