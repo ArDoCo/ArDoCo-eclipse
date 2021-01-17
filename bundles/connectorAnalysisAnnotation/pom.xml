@@ -11,6 +11,12 @@
 	    <version>1.0.0-SNAPSHOT</version>
 	 </parent>
 	 
+	 <!--  
+	 <modules>
+	 	<module>connectorAnalysisAnnotation.tests</module>
+	 </modules>
+	 -->
+	 
 	 <dependencies>
 	 	<dependency>
 	 		<groupId>edu.kit.ipd</groupId>
