@@ -1,28 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>connectorAnalysisAnnotation</artifactId>
-	<packaging>pom</packaging>
-	<parent>
-	    <groupId>edu.kit.ipd</groupId>
-  		<artifactId>ardoco-eclipse.bundles</artifactId>
-	    <version>1.0.0-SNAPSHOT</version>
-	 </parent>
-	 
-	 <!--  
-	 <modules>
-	 	<module>connectorAnalysisAnnotation.tests</module>
-	 </modules>
-	 -->
-	 
-	 <dependencies>
-	 	<dependency>
-	 		<groupId>edu.kit.ipd</groupId>
-        	<artifactId>edu.kit.textannotation.annotationplugin</artifactId>
-        	<version>${project.version}</version>
-	 	</dependency>	
-	 </dependencies>
-	 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>edu.kit.ipd</groupId>
+    <artifactId>ardoco-eclipse.bundles</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>connectorAnalysisAnnotation</artifactId>
+  <packaging>pom</packaging>
 </project>
