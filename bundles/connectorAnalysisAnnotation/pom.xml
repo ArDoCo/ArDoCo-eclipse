@@ -21,8 +21,8 @@
 	 	<dependency>
 	 		<groupId>edu.kit.ipd</groupId>
         	<artifactId>edu.kit.textannotation.annotationplugin</artifactId>
-        	<version>1.0.0-SNAPSHOT</version>
-	 	</dependency>
+        	<version>${project.version}</version>
+	 	</dependency>	
 	 </dependencies>
 	 
 </project>
