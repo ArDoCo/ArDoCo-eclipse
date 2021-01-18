@@ -61,6 +61,11 @@ public class TextAnnotationFileWizard extends Wizard implements INewWizard {
 		final String fileName = page.getFileName();
 		final String profileName = page.getProfile();
 		final String templateFile = page.getTemplateFileName();
+		return this.performCreationTextAnnotationFile(containerName, fileName, profileName, templateFile);
+	}
+	
+	public boolean performCreationTextAnnotationFile(String containerName, String fileName, 
+			String profileName, String templateFile) {
 		IRunnableWithProgress op = monitor -> {
 			try {
 				doFinish(containerName, fileName, profileName, templateFile, monitor);
