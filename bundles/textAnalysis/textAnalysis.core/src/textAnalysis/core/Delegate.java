@@ -31,7 +31,7 @@ import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
 
 import textAnalysis.provider.AnalysisProvider;
 import edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard;
-import edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizardPage;
+import edu.kit.textannotation.annotationplugin.wizards.ProfileWizard;
 
 /***
  * This class handles what happens when the runConfig is run. It calls the Analysis and collects their output in the
@@ -88,9 +88,14 @@ public class Delegate extends LaunchConfigurationDelegate {
         }
     }
     
-    public void linkToTextAnnotation() {
+    public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
     	TextAnnotationFileWizard tafWizard = new TextAnnotationFileWizard();
     	tafWizard.performCreationTextAnnotationFile(containerName, fileName, profileName, templateFile);
+    }
+    
+    public void createNewTextAnnotationProfile(String containerName, String fileName, String profileName, String profileId) {
+    	ProfileWizard profileWizard = new ProfileWizard();
+    	profileWizard.performCreationProfile(containerName, fileName, profileName, profileId);
     }
 
     /***

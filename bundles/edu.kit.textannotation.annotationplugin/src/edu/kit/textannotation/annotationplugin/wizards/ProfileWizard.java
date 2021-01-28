@@ -68,7 +68,11 @@ public class ProfileWizard extends Wizard implements INewWizard {
 				EclipseUtils.capString(profileName.toLowerCase().replaceAll("\\s", "-"), 8),
 				EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
 		);
+		return this.performCreationProfile(containerName, fileName, profileName, profileId);
+	}
 
+	public boolean performCreationProfile(String containerName, String fileName, String profileName,
+			String profileId) {
 		IRunnableWithProgress op = monitor -> {
 			try {
 				doFinish(containerName, fileName, profileName, profileId, monitor);
