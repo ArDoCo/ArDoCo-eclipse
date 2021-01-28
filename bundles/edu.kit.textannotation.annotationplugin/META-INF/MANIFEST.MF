@@ -38,3 +38,4 @@ Import-Package: javax.inject,
  org.w3c.dom,
  org.xml.sax,
  org.eclipse.e4.core.services.log
+Export-Package: edu.kit.textannotation.annotationplugin.wizards
