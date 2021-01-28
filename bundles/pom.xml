@@ -12,7 +12,6 @@
     </parent>
 
     <modules>
-    	<module>connectorAnalysisAnnotation</module>
         <module>edu.kit.textannotation.annotationplugin</module>
         <module>textAnalysis</module>
     </modules>
