@@ -55,7 +55,8 @@ public class Delegate extends LaunchConfigurationDelegate {
     @Override
     public void launch(ILaunchConfiguration configuration, String arg1, ILaunch arg2, IProgressMonitor arg3)
             throws CoreException {
-
+    	this.launchWithTextAnnotation();
+    	
         List<String> fileNames = configuration.getAttribute(PluginAttributes.FILE_NAME, new ArrayList<String>());
         Map<String, String> analysisCheckboxesStatus = configuration.getAttribute(
                 PluginAttributes.CHECKBOX_ACTIVATION_STATUS, new HashMap<String, String>());
@@ -86,6 +87,10 @@ public class Delegate extends LaunchConfigurationDelegate {
                 saveErrorFile(getFileNameWithoutExtension(fileName), error);
             }
         }
+    }
+    
+    public void launchWithTextAnnotation() {
+    	this.createTextAnnotationFile("/ardoco-eclipse/example", "testAnalysisAnnotation01.taf", "Requirements Document", "");
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
