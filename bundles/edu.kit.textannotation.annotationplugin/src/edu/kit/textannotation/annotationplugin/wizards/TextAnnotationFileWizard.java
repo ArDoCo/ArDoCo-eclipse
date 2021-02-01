@@ -23,8 +23,6 @@ import java.nio.file.Paths;
 import org.eclipse.ui.*;
 import org.eclipse.ui.ide.IDE;
 
-import javax.xml.parsers.ParserConfigurationException;
-
 /**
  * This wizard is responsible for creating new annotatable text files. It is
  * registered as an direct contribution by the eclipse plugin.
