@@ -23,19 +23,19 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: edu.kit.textannotation.annotationplugin
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.inject,
- org.eclipse.swt,
- org.eclipse.ui,
- org.osgi.framework,
- org.eclipse.jface.text,
+ javax.xml,
+ javax.xml.transform.stream,
+ javax.xml.validation,
  org.eclipse.core.resources,
  org.eclipse.core.runtime,
+ org.eclipse.e4.core.services.log,
  org.eclipse.jdt.core,
  org.eclipse.jdt.internal.ui,
  org.eclipse.jface,
- javax.xml.validation,
- javax.xml.transform.stream,
- javax.xml,
+ org.eclipse.jface.text,
+ org.eclipse.swt,
+ org.eclipse.ui,
+ org.osgi.framework,
  org.w3c.dom,
- org.xml.sax,
- org.eclipse.e4.core.services.log
+ org.xml.sax
 Export-Package: edu.kit.textannotation.annotationplugin.wizards
