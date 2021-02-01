@@ -49,12 +49,15 @@ public class SchemaValidator {
     private void validate(SchemaName schema, String xml) throws InvalidFileFormatException {
         try {
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-            factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            //factory.setProperty(accessExternalDTD, "");
+            //factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            
             Schema schemaObj = factory.newSchema(new StreamSource(getSchemaPath(schema)));
             Validator validator = schemaObj.newValidator();
-            validator.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-            validator.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            //validator.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+            //validator.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            validator.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             validator.validate(new StreamSource(new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8))));
         } catch(Exception ex) {
             switch (schema) {

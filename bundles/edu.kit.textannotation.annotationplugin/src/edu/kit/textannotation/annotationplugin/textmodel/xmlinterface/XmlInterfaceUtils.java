@@ -41,9 +41,11 @@ class XmlInterfaceUtils {
      */
     Document getNewDocument() {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+        //dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        //dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+        
         try {
+        	dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             dbf.setFeature("http://xml.org/sax/features/external-general-entities", false);
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -93,10 +95,11 @@ class XmlInterfaceUtils {
      */
     Element parseXmlFile(String source) throws InvalidFileFormatException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-        dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+        //dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        //dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
 
         try {
+        	dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             dbf.setFeature("http://xml.org/sax/features/external-general-entities", false);
             DocumentBuilder db = dbf.newDocumentBuilder();
