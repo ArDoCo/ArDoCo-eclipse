@@ -55,6 +55,7 @@ public class Delegate extends LaunchConfigurationDelegate {
     @Override
     public void launch(ILaunchConfiguration configuration, String arg1, ILaunch arg2, IProgressMonitor arg3)
             throws CoreException {
+    	
     	this.launchWithTextAnnotation();
     	
         List<String> fileNames = configuration.getAttribute(PluginAttributes.FILE_NAME, new ArrayList<String>());
@@ -90,7 +91,11 @@ public class Delegate extends LaunchConfigurationDelegate {
     }
     
     public void launchWithTextAnnotation() {
-    	this.createTextAnnotationFile("/ardoco-eclipse/example", "testAnalysisAnnotation01.taf", "Requirements Document", "");
+    	String containerName = "/ardoco-eclipse/example";
+    	String fileName = "testAnalysisAnnotation01.taf";
+    	String profileName = "Requirements Document";
+    	this.createTextAnnotationFile(containerName, fileName, profileName, "");
+    	this.createNewTextAnnotationProfile(containerName, fileName, profileName, "01");
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
