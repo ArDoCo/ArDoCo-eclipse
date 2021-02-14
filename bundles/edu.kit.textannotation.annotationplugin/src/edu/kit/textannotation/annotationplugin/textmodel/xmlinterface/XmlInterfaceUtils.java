@@ -97,7 +97,7 @@ class XmlInterfaceUtils {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         //dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
         //dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
-
+        //covered through feature_secure_processing -> true
         try {
         	dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
