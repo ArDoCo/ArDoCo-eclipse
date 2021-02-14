@@ -56,7 +56,7 @@ public class Delegate extends LaunchConfigurationDelegate {
     public void launch(ILaunchConfiguration configuration, String arg1, ILaunch arg2, IProgressMonitor arg3)
             throws CoreException {
     	
-    	this.launchWithTextAnnotation();
+    	//this.launchWithTextAnnotation();
     	
         List<String> fileNames = configuration.getAttribute(PluginAttributes.FILE_NAME, new ArrayList<String>());
         Map<String, String> analysisCheckboxesStatus = configuration.getAttribute(
@@ -90,16 +90,15 @@ public class Delegate extends LaunchConfigurationDelegate {
         }
     }
     
-    public void launchWithTextAnnotation() {
-    	String containerName = "/ardoco-eclipse/example";
-    	String fileName = "testAnalysisAnnotation01.taf";
-    	String profileName = "Requirements Document";
+    public void launchWithTextAnnotation(String containerName, String fileName, String profileName) {
+    	System.out.println("Launch with text annotation");
     	this.createTextAnnotationFile(containerName, fileName, profileName, "");
     	this.createNewTextAnnotationProfile(containerName, fileName, profileName, "01");
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
     	TextAnnotationFileWizard tafWizard = new TextAnnotationFileWizard();
+    	//tafWizard.init(workbench, selection);
     	tafWizard.performCreationTextAnnotationFile(containerName, fileName, profileName, templateFile);
     }
     
