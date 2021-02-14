@@ -83,7 +83,9 @@ public class ProfileWizard extends Wizard implements INewWizard {
 			}
 		};
 		try {
-			getContainer().run(true, false, op);
+			if(getContainer() != null) {
+				getContainer().run(true, false, op);
+			}
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			return false;
