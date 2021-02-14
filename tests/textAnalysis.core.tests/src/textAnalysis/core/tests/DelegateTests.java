@@ -1,14 +1,15 @@
 package textAnalysis.core.tests;
 
-import static org.junit.Assert.assertTrue;
+import textAnalysis.core.Delegate;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class DelegateTests {
 	
 	@Test
-	public void stupidTest() {
-		assertTrue(true); 
+	public void testLaunchWithTextAnnotation() {
+		Delegate textAnalysisDelegate = new Delegate();
 	}
 
 }
