@@ -31,6 +31,7 @@ import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
 
 import textAnalysis.provider.AnalysisProvider;
 import edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard;
+import edu.kit.textannotation.annotationplugin.profile.AnnotationProfile;
 import edu.kit.textannotation.annotationplugin.wizards.ProfileWizard;
 
 /***
@@ -90,10 +91,9 @@ public class Delegate extends LaunchConfigurationDelegate {
         }
     }
     
-    public void launchWithTextAnnotation(String containerName, String fileName, String profileName) {
-    	System.out.println("Launch with text annotation");
+    public void launchWithTextAnnotation(String containerName, String fileName, String profileName, String profileID) {
     	this.createTextAnnotationFile(containerName, fileName, profileName, "");
-    	this.createNewTextAnnotationProfile(containerName, fileName, profileName, "01");
+    	this.createNewTextAnnotationProfile(containerName, fileName, profileName, profileID);
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
