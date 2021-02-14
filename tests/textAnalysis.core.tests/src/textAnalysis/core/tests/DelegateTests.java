@@ -10,6 +10,7 @@ public class DelegateTests {
 	@Test
 	public void testLaunchWithTextAnnotation() {
 		Delegate textAnalysisDelegate = new Delegate();
+		textAnalysisDelegate.launchWithTextAnnotation();
 	}
 
 }
