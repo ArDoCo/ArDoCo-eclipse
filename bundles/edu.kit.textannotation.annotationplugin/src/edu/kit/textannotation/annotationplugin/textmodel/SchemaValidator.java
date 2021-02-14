@@ -51,6 +51,8 @@ public class SchemaValidator {
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             //factory.setProperty(accessExternalDTD, "");
             //factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            //XMLConstants could cause compiling issues
+            //setting feature_secure_processing to true, should set properties above to empty string
             factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             
             Schema schemaObj = factory.newSchema(new StreamSource(getSchemaPath(schema)));
