@@ -174,7 +174,7 @@ public class EclipseUtils {
      * @return the string shortened to the supplied length.
      */
     public static String capString(String str, int length) {
-        return str.length() >= length ? str : str.substring(0, length);
+        return str.length() >= length ? str.substring(0, length) : str;
     }
 
     public static Appender getLoggerConsoleAppenderWithLevel(Level level) {
