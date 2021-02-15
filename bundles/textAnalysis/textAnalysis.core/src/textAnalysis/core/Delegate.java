@@ -91,9 +91,9 @@ public class Delegate extends LaunchConfigurationDelegate {
         }
     }
     
-    public void launchWithTextAnnotation(String containerName, String fileNameProfile, String fileNameTaf, String profileName) {
+    public void launchWithTextAnnotation(String containerName, String fileNameProfile, String fileNameTaf, String profileName, String templateFile) {
     	this.createNewTextAnnotationProfile(containerName, fileNameProfile, profileName);
-    	this.createTextAnnotationFile(containerName, fileNameTaf, profileName, "");
+    	this.createTextAnnotationFile(containerName, fileNameTaf, profileName, templateFile);
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
