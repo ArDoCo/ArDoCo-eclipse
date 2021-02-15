@@ -68,20 +68,12 @@ public class ProfileWizard extends Wizard implements INewWizard {
 	
 	private String generateProfileIdFromProfileName(String profileName) {
 		String generatedProfileId;
-		int maxLengthProfileName = 8;
-		if(profileName.length() > maxLengthProfileName) {
-			generatedProfileId = String.format(
-					"%s_%s",
-					EclipseUtils.capString(profileName.toLowerCase().replaceAll("\\s", "-"), maxLengthProfileName),
-					EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
+		int maxLengthProfileName = 8;	
+		generatedProfileId = String.format(
+				"%s_%s",
+				EclipseUtils.capString(profileName.toLowerCase().replaceAll("\\s", "-"), maxLengthProfileName),
+				EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
 			);
-		} else {
-			generatedProfileId = String.format(
-					"%s_%s",
-					profileName.toLowerCase().replaceAll("\\s", "-"),
-					EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
-			);
-		}
 		return generatedProfileId;
 	}
 
