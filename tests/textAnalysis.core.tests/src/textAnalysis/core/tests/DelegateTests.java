@@ -11,9 +11,10 @@ public class DelegateTests {
 	public void testLaunchWithTextAnnotation() {
 		Delegate textAnalysisDelegate = new Delegate();
     	String containerName = "/ardoco-eclipse/example/annotation-example-project";
-    	String fileName = "testAnalysisAnnotation01.taf";
+    	String fileNameProfile = "testAnalysisAnnotationProfile01";
+    	String fileNameTaf = "testAnaylsisAnnotationTaf01";
     	String profileName = "Requirements Document";
-		textAnalysisDelegate.launchWithTextAnnotation(containerName, fileName, profileName);
+		textAnalysisDelegate.launchWithTextAnnotation(containerName, fileNameProfile, fileNameTaf, profileName);
 	}
 
 }

@@ -32,6 +32,7 @@ import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
 import textAnalysis.provider.AnalysisProvider;
 import edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard;
 import edu.kit.textannotation.annotationplugin.wizards.ProfileWizard;
+import edu.kit.textannotation.annotationplugin.PluginConfig;
 
 /***
  * This class handles what happens when the runConfig is run. It calls the Analysis and collects their output in the
@@ -90,20 +91,19 @@ public class Delegate extends LaunchConfigurationDelegate {
         }
     }
     
-    public void launchWithTextAnnotation(String containerName, String fileName, String profileName) {
-    	this.createTextAnnotationFile(containerName, fileName, profileName, "");
-    	this.createNewTextAnnotationProfile(containerName, fileName, profileName);
+    public void launchWithTextAnnotation(String containerName, String fileNameProfile, String fileNameTaf, String profileName) {
+    	this.createNewTextAnnotationProfile(containerName, fileNameProfile, profileName);
+    	this.createTextAnnotationFile(containerName, fileNameTaf, profileName, "");
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
     	TextAnnotationFileWizard tafWizard = new TextAnnotationFileWizard();
-    	//tafWizard.init(workbench, selection);
-    	tafWizard.performCreationTextAnnotationFile(containerName, fileName, profileName, templateFile);
+    	tafWizard.performCreationTextAnnotationFile(containerName, fileName + PluginConfig.ANNOTATABLE_FILE_EXTENSION, profileName, templateFile);
     }
     
     public void createNewTextAnnotationProfile(String containerName, String fileName, String profileName) {
     	ProfileWizard profileWizard = new ProfileWizard();
-    	profileWizard.performCreationProfile(containerName, fileName, profileName);
+    	profileWizard.performCreationProfile(containerName, fileName + PluginConfig.ANNOTATION_PROFILE_EXTENSION, profileName);
     }
 
     /***
