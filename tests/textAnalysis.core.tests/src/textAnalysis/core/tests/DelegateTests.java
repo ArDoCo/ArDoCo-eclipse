@@ -11,6 +11,7 @@ public class DelegateTests {
 	private String fileNameProfile = "testAnalysisAnnotationProfile01";
 	private String fileNameTaf = "testAnaylsisAnnotationTaf01";
 	private String profileName = "Requirements Document";
+	private String templateFile = "";
 	private static Delegate textAnalysisDelegate;
 	
 	@BeforeClass
@@ -20,12 +21,12 @@ public class DelegateTests {
 	
 	@Test
 	public void testLaunchWithTextAnnotation() {
-		textAnalysisDelegate.launchWithTextAnnotation(containerName, fileNameProfile, fileNameTaf, profileName);
+		textAnalysisDelegate.launchWithTextAnnotation(containerName, fileNameProfile, fileNameTaf, profileName, templateFile);
 	}
 	
 	@Test
 	public void testCreateTextAnnotationFile() {
-		textAnalysisDelegate.createTextAnnotationFile(containerName, fileNameTaf, profileName, "");
+		textAnalysisDelegate.createTextAnnotationFile(containerName, fileNameTaf, profileName, templateFile);
 	}
 	
 	@Test
