@@ -1,6 +1,5 @@
 package edu.kit.textannotation.annotationplugin.wizards;
 
-import edu.kit.textannotation.annotationplugin.editor.AnnotationEditorFinder;
 import edu.kit.textannotation.annotationplugin.profile.AnnotationProfile;
 import edu.kit.textannotation.annotationplugin.profile.AnnotationProfileRegistry;
 import edu.kit.textannotation.annotationplugin.textmodel.xmlinterface.AnnotationProfileXmlInterface;

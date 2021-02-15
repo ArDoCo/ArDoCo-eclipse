@@ -31,7 +31,6 @@ import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
 
 import textAnalysis.provider.AnalysisProvider;
 import edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard;
-import edu.kit.textannotation.annotationplugin.profile.AnnotationProfile;
 import edu.kit.textannotation.annotationplugin.wizards.ProfileWizard;
 
 /***
