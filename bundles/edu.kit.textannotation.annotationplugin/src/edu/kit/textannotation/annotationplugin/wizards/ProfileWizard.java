@@ -60,30 +60,34 @@ public class ProfileWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public boolean performFinish() {
-		int maxLengthProfileName = 8;
 		final String containerName = page.getContainerName();
 		final String fileName = page.getFileName();
 		final String profileName = page.getProfile();
-		final String profileId;
+		
+		return this.performCreationProfile(containerName, fileName, profileName);
+	}
+	
+	private String generateProfileIdFromProfileName(String profileName) {
+		String generatedProfileId;
+		int maxLengthProfileName = 8;
 		if(profileName.length() > maxLengthProfileName) {
-			profileId = String.format(
+			generatedProfileId = String.format(
 					"%s_%s",
 					EclipseUtils.capString(profileName.toLowerCase().replaceAll("\\s", "-"), maxLengthProfileName),
 					EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
 			);
 		} else {
-			profileId = String.format(
+			generatedProfileId = String.format(
 					"%s_%s",
 					profileName.toLowerCase().replaceAll("\\s", "-"),
 					EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
 			);
 		}
-		
-		return this.performCreationProfile(containerName, fileName, profileName, profileId);
+		return generatedProfileId;
 	}
 
-	public boolean performCreationProfile(String containerName, String fileName, String profileName,
-			String profileId) {
+	public boolean performCreationProfile(String containerName, String fileName, String profileName) {
+		final String profileId = generateProfileIdFromProfileName(profileName);
 		IRunnableWithProgress op = monitor -> {
 			try {
 				doFinish(containerName, fileName, profileName, profileId, monitor);

@@ -91,9 +91,9 @@ public class Delegate extends LaunchConfigurationDelegate {
         }
     }
     
-    public void launchWithTextAnnotation(String containerName, String fileName, String profileName, String profileID) {
+    public void launchWithTextAnnotation(String containerName, String fileName, String profileName) {
     	this.createTextAnnotationFile(containerName, fileName, profileName, "");
-    	this.createNewTextAnnotationProfile(containerName, fileName, profileName, profileID);
+    	this.createNewTextAnnotationProfile(containerName, fileName, profileName);
     }
     
     public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
@@ -102,9 +102,9 @@ public class Delegate extends LaunchConfigurationDelegate {
     	tafWizard.performCreationTextAnnotationFile(containerName, fileName, profileName, templateFile);
     }
     
-    public void createNewTextAnnotationProfile(String containerName, String fileName, String profileName, String profileId) {
+    public void createNewTextAnnotationProfile(String containerName, String fileName, String profileName) {
     	ProfileWizard profileWizard = new ProfileWizard();
-    	profileWizard.performCreationProfile(containerName, fileName, profileName, profileId);
+    	profileWizard.performCreationProfile(containerName, fileName, profileName);
     }
 
     /***
