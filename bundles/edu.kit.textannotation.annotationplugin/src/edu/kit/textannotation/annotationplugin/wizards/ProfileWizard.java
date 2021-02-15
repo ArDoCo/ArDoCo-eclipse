@@ -60,14 +60,25 @@ public class ProfileWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public boolean performFinish() {
+		int maxLengthProfileName = 8;
 		final String containerName = page.getContainerName();
 		final String fileName = page.getFileName();
 		final String profileName = page.getProfile();
-		final String profileId = String.format(
-				"%s_%s",
-				EclipseUtils.capString(profileName.toLowerCase().replaceAll("\\s", "-"), 8),
-				EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
-		);
+		final String profileId;
+		if(profileName.length() > maxLengthProfileName) {
+			profileId = String.format(
+					"%s_%s",
+					EclipseUtils.capString(profileName.toLowerCase().replaceAll("\\s", "-"), maxLengthProfileName),
+					EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
+			);
+		} else {
+			profileId = String.format(
+					"%s_%s",
+					profileName.toLowerCase().replaceAll("\\s", "-"),
+					EclipseUtils.capString(UUID.randomUUID().toString().toLowerCase().replaceAll("\\s", "-"), 4)
+			);
+		}
+		
 		return this.performCreationProfile(containerName, fileName, profileName, profileId);
 	}
 
