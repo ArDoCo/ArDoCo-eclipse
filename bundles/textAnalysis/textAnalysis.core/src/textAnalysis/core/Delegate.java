@@ -56,8 +56,16 @@ public class Delegate extends LaunchConfigurationDelegate {
     @Override
     public void launch(ILaunchConfiguration configuration, String arg1, ILaunch arg2, IProgressMonitor arg3)
             throws CoreException {
+    	// TODO: Set this variables in a GUI test or implement a UI for it later.
+    	String containerName = "/ardoco-eclipse/example/annotation-example-project";
+    	String fileNameProfile = "testAnalysisAnnotationProfile01";
+    	String fileNameTaf = "testAnaylsisAnnotationTaf01";
+    	String profileName = "Requirements Document";
+    	String templateFile = "";
     	
-    	//this.launchWithTextAnnotation();
+    	// Combine TextAnnotation Plugin with TextAnalysis
+    	// When you launch the TextAnalysis, it should automatically provide sample tap and taf files.
+    	this.launchWithTextAnnotation(containerName, fileNameProfile, fileNameTaf, profileName, templateFile);
     	
         List<String> fileNames = configuration.getAttribute(PluginAttributes.FILE_NAME, new ArrayList<String>());
         Map<String, String> analysisCheckboxesStatus = configuration.getAttribute(
@@ -85,24 +93,43 @@ public class Delegate extends LaunchConfigurationDelegate {
                 closeEventWriter(eventWriter);
 
             } catch (FileNotFoundException | XMLStreamException e1) {
+            	System.out.println(e1.getMessage());
                 String error = "Problem with xml Generation: " + e1.toString();
                 saveErrorFile(getFileNameWithoutExtension(fileName), error);
             }
         }
     }
     
+    /**
+     * This method serves as a connector between TextAnalysis and TextAnnotation plugin.
+     * It creates a new text annotation profile (tap) and a text annotation file (taf).
+     * @param containerName: the directory for the created files
+     * @param fileNameProfile: file name for tap file
+     * @param fileNameTaf: file name for taf file
+     * @param profileName: a name for the profile specifying its annotation purpose (e.g. Requirements, Modules etc.)
+     * @param templateFile: possibility to create taf file from a template file
+     */
     public void launchWithTextAnnotation(String containerName, String fileNameProfile, String fileNameTaf, String profileName, String templateFile) {
     	this.createNewTextAnnotationProfile(containerName, fileNameProfile, profileName);
     	this.createTextAnnotationFile(containerName, fileNameTaf, profileName, templateFile);
     }
     
-    public void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
+    /**
+     * Creating a text annotation file (taf) by calling methods from @edu.kit.textannotation.annotationplugin.wizards.TextAnnotationFileWizard
+     * File name will be extended with appropriate file extension for taf files.
+     */
+    private void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
     	TextAnnotationFileWizard tafWizard = new TextAnnotationFileWizard();
     	tafWizard.performCreationTextAnnotationFile(containerName, fileName + PluginConfig.ANNOTATABLE_FILE_EXTENSION, profileName, templateFile);
     }
     
-    public void createNewTextAnnotationProfile(String containerName, String fileName, String profileName) {
+    /**
+     * Creating a text annotation profile (tap) by calling methods from @edu.kit.textannotation.annotationplugin.wizards.ProfileWizards
+     * File name will be extended with appropriate file extension for tap files.
+     */
+    private void createNewTextAnnotationProfile(String containerName, String fileName, String profileName) {
     	ProfileWizard profileWizard = new ProfileWizard();
+    	// TODO: Resolve "Reported Error: profile <modified_profile_name> not found, available are ..."
     	profileWizard.performCreationProfile(containerName, fileName + PluginConfig.ANNOTATION_PROFILE_EXTENSION, profileName);
     }
 
