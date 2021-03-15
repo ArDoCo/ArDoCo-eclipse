@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jdt.annotation,
  org.apache.log4j;bundle-version="1.2.15",
  javax.xml
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: edu.kit.textannotation.annotationplugin
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.inject,
