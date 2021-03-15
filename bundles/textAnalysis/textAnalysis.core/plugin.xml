@@ -4,10 +4,11 @@
 
    <extension point="org.eclipse.debug.core.launchConfigurationTypes">
    		<launchConfigurationType
-	   		 id="textAnalysis.core.LaunchConfigurationType"
-	   		 delegate="textAnalysis.core.Delegate"
-	   		 modes="run, debug"
-	         name="TextAnalyzer">
+           delegate="textAnalysis.core.Delegate"
+           id="textAnalysis.core.LaunchConfigurationType"
+           modes="run, debug"
+           name="TextAnalyzer"
+           public="true">
   		</launchConfigurationType>
    </extension>
   

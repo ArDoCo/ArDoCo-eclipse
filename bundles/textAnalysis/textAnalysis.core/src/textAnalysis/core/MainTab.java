@@ -167,7 +167,6 @@ public class MainTab extends AbstractLaunchConfigurationTab {
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		System.out.println("perform Apply");
 
 		// ---- Files
 		List<String> file_names = Arrays.asList(textTxtIn.getText().split(";"));
@@ -191,40 +190,44 @@ public class MainTab extends AbstractLaunchConfigurationTab {
 
 	@Override
 	public boolean isValid(ILaunchConfiguration launchConfig) {
-
-		// if at least 1 file is specified and if all specified files are valid
-		String[] files = textTxtIn.getText().split(";");
-		boolean filesAreValid = true;
-		for (String file_text : files) {
-			File file = new File(file_text);
-
-			for (String f : txtFileExtensions) {
-				if (!((file.exists()) && (file.getName().endsWith(f.substring(1))))) {
-					filesAreValid = false;
-				}
-			}
-		}
-
-		// if at least one Analysis is chosen
-		boolean atLeast1 = false;
-		for (Button b : analysisButtons.values()) {
-			if (b.getSelection()) {
-				atLeast1 = true;
-			}
-		}
 		
-		// if the chosen analysis is / are valid
-		boolean chosenAnalysisAreValid = true;
-		for (Map.Entry<String, Button> buttonEntry : analysisButtons.entrySet()) {
-			if (buttonEntry.getValue().getSelection()) {
-				Optional<AnalysisProvider> analysis = AnalysisLoader.getAnalysisFrom(analysisList, buttonEntry.getKey());
-				if (!analysis.isPresent() || !analysis.get().isValid()) {
-					chosenAnalysisAreValid = false;
-				}
-			}
-		}
-
-		return ((files.length > 0) && filesAreValid && atLeast1 && chosenAnalysisAreValid);
+		// uncomment the following method if you want to switch back to native textAnalysis (GUI inputs necessary)
+		
+		// if at least 1 file is specified and if all specified files are valid
+//		String[] files = textTxtIn.getText().split(";");
+//		boolean filesAreValid = true;
+//		for (String file_text : files) {
+//			File file = new File(file_text);
+//
+//			for (String f : txtFileExtensions) {
+//				if (!((file.exists()) && (file.getName().endsWith(f.substring(1))))) {
+//					filesAreValid = false;
+//				}
+//			}
+//		}
+//
+//		// if at least one Analysis is chosen
+//		boolean atLeast1 = false;
+//		for (Button b : analysisButtons.values()) {
+//			if (b.getSelection()) {
+//				atLeast1 = true;
+//			}
+//		}
+//		
+//		// if the chosen analysis is / are valid
+//		boolean chosenAnalysisAreValid = true;
+//		for (Map.Entry<String, Button> buttonEntry : analysisButtons.entrySet()) {
+//			if (buttonEntry.getValue().getSelection()) {
+//				Optional<AnalysisProvider> analysis = AnalysisLoader.getAnalysisFrom(analysisList, buttonEntry.getKey());
+//				if (!analysis.isPresent() || !analysis.get().isValid()) {
+//					chosenAnalysisAreValid = false;
+//				}
+//			}
+//		}
+//		return ((files.length > 0) && filesAreValid && atLeast1 && chosenAnalysisAreValid);
+		
+		// modified to allow launch without input to GUI fields, TextAnnotation files should be generated automatically
+		return true;
 	}
 
 	@Override
