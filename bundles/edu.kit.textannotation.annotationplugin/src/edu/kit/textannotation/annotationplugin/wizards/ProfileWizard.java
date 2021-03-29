@@ -18,8 +18,11 @@ import org.eclipse.ui.*;
 import org.osgi.framework.FrameworkUtil;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
@@ -78,19 +81,28 @@ public class ProfileWizard extends Wizard implements INewWizard {
 	}
 
 	public boolean performCreationProfile(String containerName, String fileName, String profileName) {
+		System.out.println("Perform creation profile");
 		final String profileId = generateProfileIdFromProfileName(profileName);
 		IRunnableWithProgress op = monitor -> {
+			System.out.println("Before try");
 			try {
+				System.out.println("Try");
 				doFinish(containerName, fileName, profileName, profileId, monitor);
 			} catch (CoreException e) {
 				throw new InvocationTargetException(e);
 			} finally {
+				System.out.println("Finally");
 				monitor.done();
 			}
 		};
 		try {
 			if(getContainer() != null) {
+				System.out.println("getContainer != null");
 				getContainer().run(true, false, op);
+			} else {
+				System.out.println("getContainer == null");
+				doFinishWithoutContainer(containerName, fileName, profileName, profileId);
+				
 			}
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
@@ -99,6 +111,9 @@ public class ProfileWizard extends Wizard implements INewWizard {
 			Throwable realException = e.getTargetException();
 			MessageDialog.openError(getShell(), "Error", realException.getMessage());
 			return false;
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		onFinish.fire(new EventManager.EmptyEvent());
 
@@ -142,18 +157,30 @@ public class ProfileWizard extends Wizard implements INewWizard {
 			stream.close();
 		} catch (IOException e) {
 		}
-
-		// Don't open file in editor because profile can be edited in profile view.
-		// monitor.setTaskName("Opening file for editing...");
-		// getShell().getDisplay().asyncExec(() -> {
-		// 	IWorkbenchPage page =
-		// 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		// 	try {
-		// 		IDE.openEditor(page, file, true);
-		// 	} catch (PartInitException e) {
-		// 	}
-		// });
-		// monitor.worked(1);
+	}
+	
+	private void doFinishWithoutContainer(String containerName, String fileName,String profileName,String profileId) throws CoreException {
+		System.out.println("Perform without container");
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		IResource resource = root.findMember(new Path(containerName));
+		if (!resource.exists() || !(resource instanceof IContainer)) {
+			throwCoreException("Container \"" + containerName + "\" does not exist.");
+		}
+		IContainer container = (IContainer) resource;
+		final IFile file = container.getFile(new Path(fileName));
+		File javaIOFile = file.getLocation().toFile();
+		System.out.println(javaIOFile);
+		try {
+			InputStream stream = openContentStream(profileName, profileId);
+			byte[] buffer = new byte[stream.available()];
+			stream.read(buffer);
+			
+			OutputStream outStream = new FileOutputStream(javaIOFile);
+			outStream.write(buffer);
+			outStream.close();
+		} catch (IOException e) {
+			
+		}
 	}
 	
 	/**
