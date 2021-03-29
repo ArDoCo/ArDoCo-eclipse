@@ -1,0 +1,9 @@
+TODO March 2021:
+
+- In textAnalysis.core.Delegate handle setting of directory and file name for the creating of tap and taf files
+(currently hardcorded in method launch).
+- Inspect creation of taf files (build on tap files which are successfully created, taf file not).
+
+- In textAnnotation.annotationplugin.wizards.ProfileWizards in doFinishWithoutContainer() handle case if file already exists.
+- Implement creation of annotation classes independent from UI (not working yet becasue of missing container).
+- Resolve error occurring concerning the _analysis.xml and _error.xml files.
