@@ -128,9 +128,9 @@ public class Delegate extends LaunchConfigurationDelegate {
      * File name will be extended with appropriate file extension for tap files.
      */
     private void createNewTextAnnotationProfile(String containerName, String fileName, String profileName) {
+    	//TODO: Resolve _analysis.xml (Zugriff verweigert)
     	ProfileWizard profileWizard = new ProfileWizard();
-    	// TODO: Resolve "Reported Error: profile <modified_profile_name> not found, available are ..."
-    	profileWizard.performCreationProfile(containerName, fileName + PluginConfig.ANNOTATION_PROFILE_EXTENSION, profileName);
+    	profileWizard.performCreationProfile(containerName, fileName + "." +  PluginConfig.ANNOTATION_PROFILE_EXTENSION, profileName);
     }
 
     /***
