@@ -59,7 +59,7 @@ public class Delegate extends LaunchConfigurationDelegate {
     	// TODO: Set this variables in a GUI test or implement a UI for it later.
     	String containerName = "/ardoco-eclipse/example/annotation-example-project";
     	String fileNameProfile = "testAnalysisAnnotationProfile01";
-    	String fileNameTaf = "testAnaylsisAnnotationTaf01";
+    	String fileNameTaf = "testAnaylsisAnnotationTaf02";
     	String profileName = "Requirements Document";
     	String templateFile = "";
     	
@@ -120,7 +120,7 @@ public class Delegate extends LaunchConfigurationDelegate {
      */
     private void createTextAnnotationFile(String containerName, String fileName, String profileName, String templateFile) {
     	TextAnnotationFileWizard tafWizard = new TextAnnotationFileWizard();
-    	tafWizard.performCreationTextAnnotationFile(containerName, fileName + PluginConfig.ANNOTATABLE_FILE_EXTENSION, profileName, templateFile);
+    	tafWizard.performCreationTextAnnotationFile(containerName, fileName + "." + PluginConfig.ANNOTATABLE_FILE_EXTENSION, profileName, templateFile);
     }
     
     /**
