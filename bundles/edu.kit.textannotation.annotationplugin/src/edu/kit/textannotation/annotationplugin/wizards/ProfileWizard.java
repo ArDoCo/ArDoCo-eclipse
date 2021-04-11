@@ -81,26 +81,20 @@ public class ProfileWizard extends Wizard implements INewWizard {
 	}
 
 	public boolean performCreationProfile(String containerName, String fileName, String profileName) {
-		System.out.println("Perform creation profile");
 		final String profileId = generateProfileIdFromProfileName(profileName);
 		IRunnableWithProgress op = monitor -> {
-			System.out.println("Before try");
 			try {
-				System.out.println("Try");
 				doFinish(containerName, fileName, profileName, profileId, monitor);
 			} catch (CoreException e) {
 				throw new InvocationTargetException(e);
 			} finally {
-				System.out.println("Finally");
 				monitor.done();
 			}
 		};
 		try {
 			if(getContainer() != null) {
-				System.out.println("getContainer != null");
 				getContainer().run(true, false, op);
 			} else {
-				System.out.println("getContainer == null");
 				doFinishWithoutContainer(containerName, fileName, profileName, profileId);
 				
 			}
@@ -160,7 +154,6 @@ public class ProfileWizard extends Wizard implements INewWizard {
 	}
 	
 	private void doFinishWithoutContainer(String containerName, String fileName,String profileName,String profileId) throws CoreException {
-		System.out.println("Perform without container");
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName));
 		if (!resource.exists() || !(resource instanceof IContainer)) {
@@ -169,7 +162,6 @@ public class ProfileWizard extends Wizard implements INewWizard {
 		IContainer container = (IContainer) resource;
 		final IFile file = container.getFile(new Path(fileName));
 		File javaIOFile = file.getLocation().toFile();
-		System.out.println(javaIOFile);
 		try {
 			InputStream stream = openContentStream(profileName, profileId);
 			byte[] buffer = new byte[stream.available()];
